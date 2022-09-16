@@ -11,7 +11,7 @@ function App() {
       const r = await Axios.get(
         "https://neurobica-datacollection-ppoc.herokuapp.com/num"
       );
-      snum(r.data);
+      snum(r.data.r);
     };
     get();
   }, []);
