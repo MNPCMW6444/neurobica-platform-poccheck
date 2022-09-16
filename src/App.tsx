@@ -7,25 +7,18 @@ function App() {
   const [num, snum] = useState(104);
 
   useEffect(() => {
-    Axios.get("num");
+    const get = async () => {
+      const r = await Axios.get(
+        "https://neurobica-datacollection-ppoc.herokuapp.com/num"
+      );
+      snum(r.data);
+    };
+    get();
   }, []);
 
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <h1>{num}</h1>
     </div>
   );
 }
